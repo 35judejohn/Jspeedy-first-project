@@ -54,31 +54,31 @@
       "properties": {
         "securityRules": [
           {
-            "name": "Allow-SSH-SingleIP",
+            "name": "Allow-SSH-AllIPs",
             "properties": {
               "priority": 100,
               "protocol": "Tcp",
               "access": "Allow",
               "direction": "Inbound",
-              "sourceAddressPrefix": "[parameters('allowedIPAddress')]",
+              "sourceAddressPrefix": "*",
               "sourcePortRange": "*",
               "destinationAddressPrefix": "*",
               "destinationPortRange": "22",
-              "description": "Allow SSH from one IP only"
+              "description": "Allow SSH from any IP"
             }
           },
           {
-            "name": "Allow-HTTP-SingleIP",
+            "name": "Allow-HTTP-AllIPs",
             "properties": {
               "priority": 110,
               "protocol": "Tcp",
               "access": "Allow",
               "direction": "Inbound",
-              "sourceAddressPrefix": "[parameters('allowedIPAddress')]",
+              "sourceAddressPrefix": "*",
               "sourcePortRange": "*",
               "destinationAddressPrefix": "*",
               "destinationPortRange": "80",
-              "description": "Allow HTTP from one IP only"
+              "description": "Allow HTTP from any IP"
             }
           },
           {
@@ -120,7 +120,9 @@
       ],
       "properties": {
         "addressSpace": {
-          "addressPrefixes": [ "10.0.0.0/16" ]
+          "addressPrefixes": [
+            "10.0.0.0/16"
+          ]
         },
         "subnets": [
           {
