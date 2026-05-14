@@ -1,0 +1,10 @@
+az group create –name rg-resource-group –location eastus
+
+ssh-keygen -t rsa -b 4096
+
+az deployment group create \
+  --resource-group rg-resource-group \
+  --template-file deploy.json \
+  --parameters adminUsername=azureuser \
+               adminPublicKey="$(cat ~/.ssh/id_rsa.pub)" \
+               allowedIPAddress=98.97.79.53
