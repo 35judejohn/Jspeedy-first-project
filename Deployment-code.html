@@ -9,6 +9,7 @@ az deployment group create \
                adminPublicKey="$(cat ~/.ssh/id_rsa.pub)" \
                allowedIPAddress=98.97.79.53
 az group delete --name rg-resource-group --yes --no-wait
+# To Delete a resource-group that have been create
 
 az vm list-sizes --location eastus
 # To view all sizes available sizes above --location
